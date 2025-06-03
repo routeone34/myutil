@@ -1,5 +1,4 @@
 import { S3Client, GetObjectCommand, DeleteObjectCommand, ListObjectsCommand, PutObjectCommand, CopyObjectCommand } from "@aws-sdk/client-s3";
-import { Upload } from "@aws-sdk/lib-storage";
 
 export class s3wrap {
     constructor(param) {
@@ -42,6 +41,17 @@ export class s3wrap {
             case "response":
                 return response;
         }
+    }
+
+    async getObjectByRange(bucket, key, from, to) {
+        const response = await this.client.send(
+            new GetObjectCommand({
+                Bucket: bucket,
+                Key: key,
+                Range: `bytes=${from}-${to}`
+            })
+        );
+        return response;
     }
 
     async putObject(bucket, key, buffer) {
