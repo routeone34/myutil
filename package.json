@@ -1,0 +1,22 @@
+{
+  "name": "myutil",
+  "version": "1.0.3",
+  "main": "./index.js",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.821.0",
+    "@aws-sdk/lib-storage": "^3.821.0",
+    "@sqlitecloud/drivers": "^1.0.507",
+    "unzipper": "^0.12.3"
+  }
+}
